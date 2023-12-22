@@ -1,9 +1,7 @@
 import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/auth-context";
-
 import classes from "./Login.module.css";
-
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -15,20 +13,18 @@ const Login = () => {
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     let enteredEmail = emailInputRef.current.value;
     let enteredPassword = passwordInputRef.current.value; //add validations for email and password as per you
     setLoading(true);
-
     let url;
     if (isLogin) {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD-vt_LyHTrj3Myyjv9wniE8-YpBJqZIXg";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDq8pxSLW3NxiZHt8di7xIQwFmsLluNPT0";
     } else {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD-vt_LyHTrj3Myyjv9wniE8-YpBJqZIXg";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDq8pxSLW3NxiZHt8di7xIQwFmsLluNPT0";
     }
     fetch(url, {
       method: "POST",

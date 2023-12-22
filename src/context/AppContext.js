@@ -50,7 +50,7 @@ const AppContext = (props) => {
       if (addedProduct && !addedProductIndex) {
         const userMail = localStorage.getItem("email");
         const response = await axios.post(
-          `https://crudcrud.com/api/18ab4c3022b847dd8b70cc79f9f6e65c/cart${userMail}`,
+          `https://crudcrud.com/api/b3ca2dc7860345ba9a3660eec1e64b93/cart${userMail}`,
           addedProduct
         );
         const addedProductWithId = { ...addedProduct, _id: response.data._id };
@@ -66,7 +66,7 @@ const AppContext = (props) => {
       setCart((prevCart) => prevCart.filter((item) => item.id !== itemid));
       const userMail = localStorage.getItem("email");
       await axios.delete(
-        `https://crudcrud.com/api/18ab4c3022b847dd8b70cc79f9f6e65c/cart${userMail}/${id}`
+        `https://crudcrud.com/api/b3ca2dc7860345ba9a3660eec1e64b93/cart${userMail}/${id}`
       );
     } catch (err) {
       console.log("Item not removed- " + err);
@@ -76,7 +76,7 @@ const AppContext = (props) => {
     try {
       const userMail = localStorage.getItem("email");
       const response = await axios.get(
-        `https://crudcrud.com/api/18ab4c3022b847dd8b70cc79f9f6e65c/cart${userMail}`
+        `https://crudcrud.com/api/b3ca2dc7860345ba9a3660eec1e64b93/cart${userMail}`
       );
       setCart(response.data);
     } catch (err) {
